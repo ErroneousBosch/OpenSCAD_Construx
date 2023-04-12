@@ -35,6 +35,8 @@ module face(){
     
 }
 
+//@TODO: Put in reinforcement piece in middle of longer beams
+
 module beam(length){
     ft=2.1;
     il = length-2*ft;
