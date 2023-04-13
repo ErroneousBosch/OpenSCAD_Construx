@@ -37,9 +37,11 @@ module face(){
 
 //@TODO: Put in reinforcement piece in middle of longer beams
 
-module beam(length){
-    ft=2.1;
-    il = length-2*ft;
+module beam(segments){
+    bl = 17.85;
+    kl = 12;
+    ft = 2.1;
+    il = bl*segments + (segments-1)*kl - 2*ft;
     translate([ft,0,0])
     difference(){
     cube([il,12,12]);
