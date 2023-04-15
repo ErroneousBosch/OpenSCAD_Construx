@@ -45,17 +45,18 @@ module support(){
         translate([0,kl*.5,kl*.5])rotate([0,90,0])cylinder(h=1, d=kl*.5);
     translate([0,kl*.25,0])cube([.5,kl*.5,kl*.5]);
     }
+}
 
-    
+module innerBeam(il){
+    difference(){
+        cube([il,kl,kl]);
+        translate([0,1.3,0])cube([il,9.4,9.4]);
+    };
 }
 
 module beam(segments){
     il = innerLength(segments);
-    translate([ft,0,0])
-    difference(){
-    cube([il,kl,kl]);
-    translate([0,1.3,0])cube([il,9.4,9.4]);
-    };
+    translate([ft,0,0]) innerBeam(il);
     translate([il+ft,0,0])face();
     face();
     if(segments >1){
