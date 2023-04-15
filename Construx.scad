@@ -72,7 +72,6 @@ module rectPanel(xs,ys){
     xl = beamLength(xs)-.2;
     yl = beamLength(ys)-.2;
     
-
     panelEdge(xs);
     translate([xl,yl,0])rotate([0,0,180])panelEdge(xs);
     translate([-1.5,0,0])cube([xl+3,yl,1]);
@@ -87,7 +86,7 @@ module edge(xl){
 
 module panelEdge(xs){
     xl = beamLength(xs)-.2;
-echo(xl);
+
     oa = 1.45;
     ia = 3.65;
     gap = 8.70;
@@ -98,17 +97,11 @@ echo(xl);
             if (i == 1){
                 edge(bl+oa);
             } else if(i == xs){
-                echo(i-2);
-                echo ((bl+oa)+((i-2)*(bl+3.45))+ gap*(i-1));
               translate([((bl+oa)+((i-2)*(bl+3.45))+ gap*(i-1)),0,0])edge(bl+oa);
             } else {
-                echo(i-2);
-                echo (bl+3);
-                echo ((bl+oa)+((i-2)*(bl+3.45))+ gap*(i-1));
               translate([((bl+oa)+((i-2)*(bl+3.45))+ gap*(i-1)),0,0])edge(bl+ia);
             }
-            
-         
+             
         }
 
         translate([0,0,2])rotate([0,90,0])cylinder(1,d=2);
